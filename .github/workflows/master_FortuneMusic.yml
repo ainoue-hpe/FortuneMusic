@@ -59,4 +59,4 @@ jobs:
         with:
           app-name: 'FortuneMusic'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_dbfddef091be41308aeed03fcc45a874 }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_a810bfd7101242f7b70e970678fba79e }}
