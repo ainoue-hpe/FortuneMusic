@@ -29,13 +29,13 @@ for url in songsjp["URL"]:
     n=spotify.audio_features(url)[0]
  
 file_jp = pd.read_csv('日本TOP200.csv')
-file_sort_jp = file_jp.sort_values('danceability')
+file_sort_jp = file_jp.sort_values('danceability',ascending=False)
 file_URL_jp = file_sort_jp.loc[:,'URL']
 
 print(file_URL_jp)
 
 file_gl = pd.read_csv('グローバルTOP200.csv')
-file_sort_gl = file_gl.sort_values('danceability')
+file_sort_gl = file_gl.sort_values('danceability',ascending=False)
 file_URL_gl = file_sort_gl.loc[:,'URL']
 
 print(file_URL_gl)
