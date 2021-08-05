@@ -4,7 +4,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import sys
 import numpy as np
-
+import random
 lz_uri = 'spotify:artist:36QJpDe2go2KgaRleHCDTp'
 
 client_id = '023480561f7749a182e794a5ec355145'
@@ -28,14 +28,23 @@ song_info = pd.DataFrame()
 for url in songsjp["URL"]: 
     n=spotify.audio_features(url)[0]
  
-file_jp = pd.read_csv('日本TOP200.csv')
-file_sort_jp = file_jp.sort_values('danceability',ascending=False)
-file_URL_jp = file_sort_jp.loc[:,'URL']
 
-print(file_URL_jp)
+number=random.randint(0,1)
+print(number)
+if number==0:
 
-file_gl = pd.read_csv('グローバルTOP200.csv')
-file_sort_gl = file_gl.sort_values('danceability',ascending=False)
-file_URL_gl = file_sort_gl.loc[:,'URL']
+    word='danceability'
+    file_jp = pd.read_csv('日本TOP200.csv')
+    file_sort_jp = file_jp.sort_values('%s' % word,ascending=False)
+    file_URL_jp = file_sort_jp.loc[:,'URL']
 
-print(file_URL_gl)
+    print(file_URL_jp)
+
+elif number==1:
+    word='danceability'
+    file_gl = pd.read_csv('グローバルTOP200.csv')
+    file_sort_gl = file_gl.sort_values('%s' % word,ascending=False)
+    file_URL_gl = file_sort_gl.loc[:,'URL']
+
+    print(file_URL_gl)
+    
