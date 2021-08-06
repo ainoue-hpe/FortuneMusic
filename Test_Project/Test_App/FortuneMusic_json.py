@@ -39,8 +39,8 @@ for i in range(len(point)):   #pointのリストの項目の数繰り返す
 
 #print(json.dumps(point_dict, indent=4, ensure_ascii=False))   #point_dictをJSON文字列として整形して出力
 
-print(point_dict['双子座'])  #key名（星座名）の指定で情報を取り出す（例：双子座）
-print(point_dict['双子座']['content'])  #key名（星座名）（要素名）の指定で情報を取り出す（例：双子座のcontentsを出したいとき）
+#print(point_dict['双子座'])  #key名（星座名）の指定で情報を取り出す（例：双子座）
+#print(point_dict['双子座']['content'])  #key名（星座名）（要素名）の指定で情報を取り出す（例：双子座のcontentsを出したいとき）
 
 
 
