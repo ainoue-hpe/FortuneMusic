@@ -13,18 +13,19 @@ import fortune_json
 
 max_val = 0
 element = ''
+sign = '山羊座'
 
-if fortune_json.point_dict['牡羊座']['total'] > max_val:
-    max_val = fortune_json.point_dict['牡羊座']['total']
+if fortune_json.point_dict[sign]['total'] > max_val:
+    max_val = fortune_json.point_dict[sign]['total']
     element = 'valence'
-elif fortune_json.point_dict['牡羊座']['job'] > max_val:
-    max_val = fortune_json.point_dict['牡羊座']['job']
-    element = 'energy'
-elif fortune_json.point_dict['牡羊座']['money'] > max_val:
-    max_val = fortune_json.point_dict['牡羊座']['money']
-    element = 'danceability'
-else:
-    max_val = fortune_json.point_dict['牡羊座']['love']
-    element = 'acousticness'
+    if fortune_json.point_dict[sign]['job'] > max_val:
+        max_val = fortune_json.point_dict[sign]['job']
+        element = 'energy'
+        if fortune_json.point_dict[sign]['money'] > max_val:
+            max_val = fortune_json.point_dict[sign]['money']
+            element = 'danceability'
+            if fortune_json.point_dict[sign]['love'] > max_val:
+                max_val = fortune_json.point_dict[sign]['love']
+                element = 'acousticness'
 
 print(element)
