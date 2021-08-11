@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - fortunemusic-group5
+name: Build and deploy Python app to Azure Web App - FortuneMusic-group5
 
 on:
   push:
@@ -57,6 +57,6 @@ jobs:
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'fortunemusic-group5'
+          app-name: 'FortuneMusic-group5'
           slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_a77e9098067942fd97c78e163f63e2cf }}
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_c26be38fe7254c71ae9c79214b9c5871 }}

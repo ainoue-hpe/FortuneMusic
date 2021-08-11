@@ -36,25 +36,29 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="023480561f
  
 def judge(data):
     number=random.randint(0,1)
-    print(number)
+    #print(number)
     if number==0:
 
         word=branch.hikaku(data)
-        print(word)
+        #print(word)
         file_jp = pd.read_csv('FortuneMusic_App/csv_data/日本TOP200.csv')
         file_sort_jp = file_jp.sort_values('%s' % word,ascending=False)
         file_URL_jp = file_sort_jp.loc[:,'URL']
-        kekka=('\n'.join(file_URL_jp.to_list()))
-        print('\n'.join(file_URL_jp.to_list()))
+        kekka=(file_URL_jp.to_list())
+        #kekka=('\n'.join(file_URL_jp.to_list()))
+        #print('\n'.join(file_URL_jp.to_list()))
+        
 
 
     elif number==1:
         word=branch.hikaku(data)
-        print(word)
+        #print(word)
         file_gl = pd.read_csv('FortuneMusic_App/csv_data/グローバルTOP200.csv')
         file_sort_gl = file_gl.sort_values('%s' % word,ascending=False)
         file_URL_gl = file_sort_gl.loc[:,'URL']
-        kekka=('\n'.join(file_URL_gl.to_list()))
-        print('\n'.join(file_URL_gl.to_list()))
+        kekka=(file_URL_gl.to_list())
+        #kekka=('\n'.join(file_URL_gl.to_list()))
+        #print('\n'.join(file_URL_gl.to_list()))
+        
 
     return kekka

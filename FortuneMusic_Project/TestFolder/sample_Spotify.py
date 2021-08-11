@@ -23,9 +23,9 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="023480561f
 
 #pd.set_option("display.max_rows", None, "display.max_columns", None)
 
-#songsjp = pd.read_csv("regional-jp-daily-latest.csv",header=1)
+#songsjp = pd.read_csv("TestFolder/data_csv/regional-jp-daily-latest.csv",header=1)
 
-#songsgl = pd.read_csv('regional-global-daily-latest.csv',header=1)
+#songsgl = pd.read_csv('TestFolder/data_csv/regional-global-daily-latest.csv',header=1)
 
 #song_info = pd.DataFrame()
 
@@ -34,20 +34,26 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="023480561f
  
 
 number=random.randint(0,1)
-print(number)
+#print(number)
+data="牡羊座"
 if number==0:
 
-    word=Unit.element
-    print(word)
+    word=Unit.hikaku(data)
+    #print(word)
     file_jp = pd.read_csv('TestFolder/data_csv/日本TOP200.csv')
     file_sort_jp = file_jp.sort_values('%s' % word,ascending=False)
     file_URL_jp = file_sort_jp.loc[:,'URL']
-    print('\n'.join(file_URL_jp.to_list()))
-
+    kekka=file_URL_jp.to_list()
+    print(kekka[0])
+    #print(kekka=('\n'.join(file_URL_jp.to_list())))
+    #print(file_URL_jp)
 elif number==1:
-    word=Unit.element
-    print(word)
+    word=Unit.hikaku(data)
+    #print(word)
     file_gl = pd.read_csv('TestFolder/data_csv/グローバルTOP200.csv')
     file_sort_gl = file_gl.sort_values('%s' % word,ascending=False)
     file_URL_gl = file_sort_gl.loc[:,'URL']
-    print('\n'.join(file_URL_gl.to_list()))
+    kekka=file_URL_gl.to_list()
+    print(kekka[0])
+    #print(kekka=('\n'.join(file_URL_gl.to_list())))
+    #print(file_URL_gl)

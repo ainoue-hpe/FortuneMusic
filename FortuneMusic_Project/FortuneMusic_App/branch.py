@@ -16,7 +16,7 @@ from FortuneMusic_App.Fortune_json import Fortune_dict
     # print(jsn.get("牡羊座").get("money"))
 
 
-def hikaku(data):
+def hikaku(data):  #後で場合ごとに書き換え必要？
     max_val = 0
     element = ''
     sign=data

@@ -5,5 +5,5 @@ app_name = 'FortuneMusic_App'
 urlpatterns = [
     path(r'', views.index, name='index'),
     # 以下を追記(views.pyのcall_write_data()にデータを送信できるようにする)
-    path("ajax/", views.call_write_data, name="call_write_data"),
+    path("ajax/", views.call_file, name="call_file"),
 ]

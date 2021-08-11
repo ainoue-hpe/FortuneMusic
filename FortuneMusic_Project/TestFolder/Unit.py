@@ -37,17 +37,5 @@ def hikaku(data):
     #print("element:"+element)
     return element
 
-data=hikaku("牡羊座")
-data_1=hikaku("蟹座")
-data_2=hikaku("乙女座")
-data_3=hikaku("射手座")
-data_4=hikaku("山羊座")
 
-
-
-print("牡羊座"+data)
-print("蟹座"+data_1)
-print("乙女座"+data_2)
-print("射手座"+data_3)
-print("山羊座"+data_4)
     
