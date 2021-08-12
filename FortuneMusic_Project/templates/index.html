@@ -1,168 +1,496 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>HTML</title>
-    <link rel='stylesheet' type='text/css' href="{% static 'style.css' %}"/>
-    <script type="text/javascript" src="{% static 'script.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
-
-  <body>
-      <span>該当する星座のボタンを押してください</span>
-      <br>
-      <!--<input type="text" size="50" id="input_form">-->
-      <button id=button_1 type="button" value="牡羊座" onclick="clickBtn(1)">牡羊座</button>
-      <button id=button_2 type="button" value="牡牛座" onclick="clickBtn(2)">牡牛座</button>
-      <button id=button_3 type="button" value="双子座" onclick="clickBtn(3)">双子座</button>
-      <button id=button_4 type="button" value="蟹座" onclick="clickBtn(4)">蟹座</button>
-      <button id=button_5 type="button" value="獅子座" onclick="clickBtn(5)">獅子座</button>
-      <button id=button_6 type="button" value="乙女座" onclick="clickBtn(6)">乙女座</button>
-      <button id=button_7 type="button" value="天秤座" onclick="clickBtn(7)">天秤座</button>
-      <button id=button_8 type="button" value="蠍座" onclick="clickBtn(8)">蠍座</button>
-      <button id=button_9 type="button" value="射手座" onclick="clickBtn(9)">射手座</button>
-      <button id=button_10 type="button" value="山羊座" onclick="clickBtn(10)">山羊座</button>
-      <button id=button_11 type="button" value="水瓶座" onclick="clickBtn(11)">水瓶座</button>
-      <button id=button_12 type="button" value="魚座" onclick="clickBtn(12)">魚座</button>
-
-      <!-- views.pyから渡された文字列を表示する。 -->
-      <br>
-     <div >星座:<span id="sign" ></span></div>
-     <div >今日の運勢ランキング:<span id="rank" ></span></div>
-     <div >総合運:<span id="total" ></span></div>
-     <div >恋愛運:<span id="love" ></span></div>
-     <div >仕事運:<span id="job" ></span></div>
-     <div >金運:<span id="money" ></span></div>
-     <div >ラッキーカラー:<span id="color" ></span></div>
-     <div >ラッキーアイテム:<span id="item" ></span></div>
-     <div >今日のひとこと:<span id="content" ></span></div>
-     <div>今日のあなたへのおすすめプレイリスト:</div>
-     <span id="text"></span></a>
-     <a id="text" href=text>サイトへのリンク (Google)</a><br/>
-     <br>
-     <span id="text"></span>
-    
-
-      <script>
-
-        //どのボタンを押したか
-        function clickBtn(btn) {
-          if(btn==1){
-            var txt = document.getElementById("button_1").value;
-            var myp = document.getElementById("sign");
-
-            var target = document.getElementById("text");
-            
-           target.href = text;
-           target.innerText = "サイトへのリンク (google)";
-            myp.innerHTML = txt;
-          }else if(btn==2){
-            var txt = document.getElementById("button_2").value;
-            var myp = document.getElementById("sign");
-            myp.innerHTML = txt;
-          }else if(btn==3){
-            var txt = document.getElementById("button_3").value;
-            var myp = document.getElementById("sign");
-            myp.innerHTML = txt;
-          }else if(btn==4){
-            var txt = document.getElementById("button_4").value;
-            var myp = document.getElementById("sign");
-            myp.innerHTML = txt;
-          }else if(btn==5){
-            var txt = document.getElementById("button_5").value;
-            var myp = document.getElementById("sign");
-            myp.innerHTML = txt;
-          }else if(btn==6){
-            var txt = document.getElementById("button_6").value;
-            var myp = document.getElementById("sign");
-            myp.innerHTML = txt;
-          }else if(btn==7){
-            var txt = document.getElementById("button_7").value;
-            var myp = document.getElementById("sign");
-            myp.innerHTML = txt;
-          }else if(btn==8){
-            var txt = document.getElementById("button_8").value;
-            var myp = document.getElementById("sign");
-            myp.innerHTML = txt;
-          }else if(btn==9){
-            var txt = document.getElementById("button_9").value;
-            var myp = document.getElementById("sign");
-            myp.innerHTML = txt;
-          }else if(btn==10){
-            var txt = document.getElementById("button_10").value;
-            var myp = document.getElementById("sign");
-            myp.innerHTML = txt;
-          }else if(btn==11){
-            var txt = document.getElementById("button_11").value;
-            var myp = document.getElementById("sign");
-            myp.innerHTML = txt;
-          }else if(btn==12){
-            var txt = document.getElementById("button_12").value;
-            var myp = document.getElementById("sign");
-            myp.innerHTML = txt;
-          }
-
-
-
-
-
-
-          $.ajax({
-            url: "{% url 'FortuneMusic_App:call_file' %}",
-            method: 'GET',
-            data: {"seiza":txt,},
-            dataType: "json",
-            contentType: "application/json",
-            beforeSend: function(xhr, settings) {
-              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-                xhr.setRequestHeader("X-CSRFToken", csrf_token);
-              }
-            },
-            error: function(xhr, status, error) {
-              console.log("error")
-            }
-          })
-          .done(function(file) {
-            // views.pyのcall_write_data()にてreturnしたHttpResponse(data)のデータはここで取得できる。
-            // フォームの下部に追記したspan部分の内容を書き換える。
-            document.getElementById("text").textContent=file[1];
-            console.log("Success"); 
-          });
-
-
-
-       
-
-
-
-          
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
  
-          // csrf_tokenの取得に使う
-          function getCookie(name) {
-            var cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-              var cookies = document.cookie.split(';');
-              for (var i = 0; i < cookies.length; i++) {
-                var cookie = jQuery.trim(cookies[i]);
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                  break;
-                }
-              }
-            }
-            return cookieValue;
-          }
+@MurakamiTakayuki 
+ainoue-hpe
+/
+FortuneMusic
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+FortuneMusic/group5FortuneMusic/templates/index.html
+@shun-iimura
+shun-iimura 0812
+Latest commit 2263fdd 3 hours ago
+ History
+ 1 contributor
+406 lines (369 sloc)  13.4 KB
+  
+{% load static %}
 
-          // ヘッダにcsrf_tokenを付与する関数
-          function csrfSafeMethod(method) {
-            // these HTTP methods do not require CSRF protection
-            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-          };
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+
+<title>SAMPLE COMPANY | 毎日の占いとあなたにピッタリな音楽を提供します</title>
+<link rel="stylesheet" media="all" href="{% static 'style.css' %}" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="js/script.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<script src="js/css3-mediaqueries.js"></script>
+<![endif]-->
+<script src="{% static 'js/jquery1.7.2.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+
+</head>
+
+<body id="top">
+	<div id="mainImg1">
+		<!--p>music&horoscope</p-->
+	</div>
+	<div id="mainImg2">
+		<img src="{% static 'images/main-img.png' %}" alt="">
+		<!--p> 毎日の占いとあなたにピッタリな音楽を</p-->
+	</div>
+	
+</body>
+
+<header id="header">
+	<div id="headerWrap">
+		<!--<h1><img src="images/logo.png" width="142" height="80" alt="logo"></h1>_>-->
+		<nav id="mainnav">
+			<div class="panel">
+				<ul>
+					<li><a href="#top">TOP</a></li>
+					<li><a href="#sec01">MESSAGE</a></li>
+					<li><a href="#sec02">GALLERY</a></li>
+
+				</ul>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<!--<div id="mainImg">
+	<img src="images/imageslogo.jpg" alt="">
+	<p> 毎日の占いとあなたにピッタリな音楽を</p>
+</div>-->
+
+<!-- MESSAGE -->
+<section id="sec01">
+	<header>
+		<h2><span>Message</span></h2>
+	</header>
+	<div class="innerS">
+		​好きな歌手はいないけどBGMとして音楽を聞きたい。そんな時に音楽と占いを同時に行い、あなたの生活を彩ります。
+	</div>
+</section>
+<!-- // MESSAGE -->
+
+<!-- GALLERY -->
+<section id="sec02">
+	<header>
+		<h2><span>Gallery</span></h2>
+	</header>
+		<div class="container1 ">
+		<div class="moimg13">
+			<a href="#" class="js-modal-open" data-target="modal01"><img src="{% static 'images/date牡羊座.png' %}" width="150" height="150" alt=""></a>
+		</div>
+		<div class="moimg13">
+			<a href="#" class="js-modal-open" data-target="modal02"><img src="{% static 'images/date牡牛座.png' %}" width="150" height="150" alt=""></a>
+		</div>	
+		<div class="moimg13">
+			<a href="#" class="js-modal-open" data-target="modal03"><img src="{% static 'images/date双子座.png' %}" width="150" height="150" alt=""></a>
+		</div>		
+		<div class="moimg13">
+			<a href="#" class="js-modal-open" data-target="modal04"><img src="{% static 'images/date蟹座.png' %}"width="150" height="150" alt=""></a>
+		</div>	
+		<div class="moimg13">
+			<a href="#" class="js-modal-open" data-target="modal05"><img src="{% static 'images/date獅子座.png' %}" width="150" height="150" alt=""></a>
+		</div>	
+		<div class="moimg13">
+			<a href="#" class="js-modal-open" data-target="modal06"><img src="{% static 'images/date乙女座.png' %}"width="150" height="150" alt=""></a>
+		</div>
+		</div>			
+	<!--div class="div-equal-box1">
+		<p>3/21~4/19</p>
+		<p>4/20~5/20</p>
+		<p>5/21~6/21</p>
+		<p>6/22~7/22</p>
+		<p>7/23~8/22</p>
+		<p>8/23~10/23</p>
+	</div-->
+		
+
+		<div class="container2">
+			<div class="moimg13">
+				<a href="#" class="js-modal-open" data-target="modal07"><img src="{% static 'images/date天秤座.png' %}" width="150" height="150" alt=""></a>
+			</div>
+			<div class="moimg13">
+				<a href="#" class="js-modal-open" data-target="modal08"><img src="{% static 'images/date蠍座.png' %}" width="150" height="150" alt=""></a>
+			</div>	
+			<div class="moimg13">
+				<a href="#" class="js-modal-open" data-target="modal09"><img src="{% static 'images/date射手座.png' %}" width="150" height="150" alt=""></a>
+			</div>		
+			<div class="moimg13">
+				<a href="#" class="js-modal-open" data-target="modal10"><img src="{% static 'images/date山羊座.png' %}"width="150" height="150" alt=""></a>
+			</div>	
+			<div class="moimg13">
+				<a href="#" class="js-modal-open" data-target="modal11"><img src="{% static 'images/date水瓶座.png' %}" width="150" height="150" alt=""></a>
+			</div>	
+			<div class="moimg13">
+				<a href="#" class="js-modal-open" data-target="modal12"><img src="{% static 'images/date魚座.png' %}"width="150" height="150" alt=""></a>
+			</div>
+			</div>			
+	<!--div class="div-equal-box2">
+		<p>9/23~10/23</p>
+		<p>10/24~11/22</p>
+		<p>11/23~12/21</p>
+		<p>12/22~1/19</p>
+		<p>1/20~2/18</p>
+		<p> 2/19~3/20</p>
+	</div-->
+
+<!-- // COMPANY -->
+<!-- / ここから -->
+<div id="modal01" class="modal js-modal">
+	<div class="modal-bg js-modal-close">
+	</div>
+	
+	  <div class="modal-content">
+		  <div class=floatButton1>
+			  <a href="#" class="js-modal-close" > × </a>
+			  <script type="text/javascript">
+				  var imglist = new Array(
+					 "{% static 'images/01.png' %}",
+					 "{% static 'images/02.png' %}",
+					 "{% static 'images/03.png' %}",
+					 "{% static 'images/04.png' %}",
+					 "{% static 'images/05.png' %}",
+					 "{% static 'images/06.png' %}",
+					 "{% static 'images/07.png' %}",
+					 "{% static 'images/08.png' %}",
+					 "{% static 'images/09.png' %}",
+					 "{% static 'images/10.png' %}",
+					 "{% static 'images/11.png' %}",
+					 "{% static 'images/12.png' %}",
+					 );
+				  var selectnum = Math.floor(Math.random() * imglist.length);
+				  var output = "<img src=" + imglist[selectnum] + ">";
+				  document.write(output);
+			   </script>
+			   
+		  </div>
+		  <div class=thema>
+			<p><br>Aries×{{ insert_rank }}位
+		  </div>
+			<br><!--span style="background-color: #7fffff;"-->{{ insert_content }}</span><br>
+			<br><!--span style="color:green;font-weight:bold"-->総合運</span><img src="{% static 'images/総合運{{ insert_total }}.png' %}">
+			<br><!--span style="color:yellow;font-weight:bold"3-->金運</span>:{{ insert_money }}
+			<br><!--span style="color:blue;font-weight:bold"-->仕事運</span>:{{ insert_job }}
+			<br><!--span style="color:palevioletred;font-weight:bold"-->恋愛運</span>:{{ insert_love }}
+			<br>ラッキーカラー:{{ insert_color }}
+			<br>ラッキーアイテム:{{ insert_item }}
+			<br>今日のおすすめソング:{{ insert_song_playlist }}</p>
+	  
+  
+	  </div>
+  </div>
+
+<div id="modal02" class="modal js-modal">
+  <div class="modal-bg js-modal-close">
+  </div>
+    <div class="modal-content">
+      <p>おうし座のあなた
+		<br>今日の運勢は、第{{ 1insert_rank }}位!<br>
+		<br>{{ 1insert_content }}<br>
+		<br>総合運:{{ 1insert_total }}
+		<br>金運:{{ 1insert_money }}
+		<br>仕事運:{{ 1insert_job }}
+		<br>恋愛運:{{ 1insert_love }}
+		<br>ラッキーカラー:{{ 1insert_color }}
+		<br>ラッキーアイテム:{{ 1insert_item }}
+		<br>今日のおすすめソング:{{ 1insert_song_playlist }}</p>
+	  </p>
+      <a href="#" class="js-modal-close">閉じる</a>
+    </div>
+</div>
+
+<div id="modal03" class="modal js-modal">
+  <div class="modal-bg js-modal-close">
+  </div>
+    <div class="modal-content">
+      <p>ふたご座のあなた
+		<br>今日の運勢は、第{{ 2insert_rank }}位!<br>
+		<br>{{ 2insert_content }}<br>
+		<br>総合運:{{ 2insert_total }}
+		<br>金運:{{ 2insert_money }}
+		<br>仕事運:{{ 2insert_job }}
+		<br>恋愛運:{{ 2insert_love }}
+		<br>ラッキーカラー:{{ 2insert_color }}
+		<br>ラッキーアイテム:{{ 2insert_item }}
+		<br>今日のおすすめソング:{{ 2insert_song_playlist }}</p></p>
+      <a href="#" class="js-modal-close">閉じる</a>
+    </div>
+</div>
+
+<div id="modal04" class="modal js-modal">
+	<div class="modal-bg js-modal-close">
+	</div>
+	  <div class="modal-content">
+		<p>かに座のあなた！
+			<br>今日の運勢は、第{{ 3insert_rank }}位!<br>
+			<br>{{ 3insert_content }}<br>
+			<br>総合運:{{ 3insert_total }}
+			<br>金運:{{ 3insert_money }}
+			<br>仕事運:{{ 3insert_job }}
+			<br>恋愛運:{{ 3insert_love }}
+			<br>ラッキーカラー:{{ 3insert_color }}
+			<br>ラッキーアイテム:{{ 3insert_item }}
+			<br>今日のおすすめソング:{{ 3insert_song_playlist }}</p>
+		<a href="#" class="js-modal-close">閉じる</a>
+	  </div>
+  </div>
+  
+  <div id="modal05" class="modal js-modal">
+	<div class="modal-bg js-modal-close">
+	</div>
+	  <div class="modal-content">
+		<p>しし座のあなた！
+			<br>今日の運勢は、第{{ 4insert_rank }}位!<br>
+			<br>{{ 4insert_content }}<br>
+			<br>総合運:{{ 4insert_total }}
+			<br>金運:{{ 4insert_money }}
+			<br>仕事運:{{ 4insert_job }}
+			<br>恋愛運:{{ 4insert_love }}
+			<br>ラッキーカラー:{{ 4insert_color }}
+			<br>ラッキーアイテム:{{ 4insert_item }}
+			<br>今日のおすすめソング:{{ 4insert_song_playlist }}</p>
+		<a href="#" class="js-modal-close">閉じる</a>
+	  </div>
+  </div>
+  
+  <div id="modal06" class="modal js-modal">
+	<div class="modal-bg js-modal-close">
+	</div>
+	  <div class="modal-content">
+		<p>おとめ座のあなた！
+			<br>今日の運勢は、第{{ 5insert_rank }}位!<br>
+			<br>{{ 5insert_content }}<br>
+			<br>総合運:{{ 5insert_total }}
+			<br>金運:{{ 5insert_money }}
+			<br>仕事運:{{ 5insert_job }}
+			<br>恋愛運:{{ 5insert_love }}
+			<br>ラッキーカラー:{{ 5insert_color }}
+			<br>ラッキーアイテム:{{ 5insert_item }}
+			<br>今日のおすすめソング:{{ 5insert_song_playlist }}</p>
+		<a href="#" class="js-modal-close">閉じる</a>
+	  </div>
+  </div>
+
+  <div id="modal07" class="modal js-modal">
+	<div class="modal-bg js-modal-close">
+	</div>
+	  <div class="modal-content">
+		<p>てんびん座のあなた！
+			<br>今日の運勢は、第{{ 6insert_rank }}位!<br>
+			<br>{{ 6insert_content }}<br>
+			<br>総合運:{{ 6insert_total }}
+			<br>金運:{{ 6insert_money }}
+			<br>仕事運:{{ 6insert_job }}
+			<br>恋愛運:{{ 6insert_love }}
+			<br>ラッキーカラー:{{ 6insert_color }}
+			<br>ラッキーアイテム:{{ 6insert_item }}
+			<br>今日のおすすめソング:{{ 6insert_song_playlist }}</p>
+		<a href="#" class="js-modal-close">閉じる</a>
+	  </div>
+  </div>
+  
+  <div id="modal08" class="modal js-modal">
+	<div class="modal-bg js-modal-close">
+	</div>
+	  <div class="modal-content">
+		<p>さそり座のあなた！
+			<br>今日の運勢は、第{{ 7insert_rank }}位!<br>
+			<br>{{ 7insert_content }}<br>
+			<br>総合運:{{ 7insert_total }}
+			<br>金運:{{ 7insert_money }}
+			<br>仕事運:{{ 7insert_job }}
+			<br>恋愛運:{{ 7insert_love }}
+			<br>ラッキーカラー:{{ 7insert_color }}
+			<br>ラッキーアイテム:{{ 7insert_item }}
+			<br>今日のおすすめソング:{{ 7insert_song_playlist }}</p>
+		<a href="#" class="js-modal-close">閉じる</a>
+	  </div>
+  </div>
+  
+  <div id="modal09" class="modal js-modal">
+	<div class="modal-bg js-modal-close">
+	</div>
+	  <div class="modal-content">
+		<p>いて座のあなた！
+			<br>今日の運勢は、第{{ 8insert_rank }}位!<br>
+			<br>{{ 8insert_content }}<br>
+			<br>総合運:{{ 8insert_total }}
+			<br>金運:{{ 8insert_money }}
+			<br>仕事運:{{ 8insert_job }}
+			<br>恋愛運:{{ 8insert_love }}
+			<br>ラッキーカラー:{{ 8insert_color }}
+			<br>ラッキーアイテム:{{ 8insert_item }}
+			<br>今日のおすすめソング:{{ 8insert_song_playlist }}</p>
+		<a href="#" class="js-modal-close">閉じる</a>
+	  </div>
+  </div>
+  
+  <div id="modal010" class="modal js-modal">
+	  <div class="modal-bg js-modal-close">
+	  </div>
+		<div class="modal-content">
+			<p>やぎ座のあなた！
+				<br>今日の運勢は、第{{ 9insert_rank }}位!<br>
+				<br>{{ 9insert_content }}<br>
+				<br>総合運:{{ 9insert_total }}
+				<br>金運:{{ 9insert_money }}
+				<br>仕事運:{{ 9insert_job }}
+				<br>恋愛運:{{ 9insert_love }}
+				<br>ラッキーカラー:{{ 9insert_color }}
+				<br>ラッキーアイテム:{{ 9insert_item }}
+				<br>今日のおすすめソング:{{ 9insert_song_playlist }}</p>
+		  <a href="#" class="js-modal-close">閉じる</a>
+		</div>
+	</div>
+	
+	<div id="modal011" class="modal js-modal">
+	  <div class="modal-bg js-modal-close">
+	  </div>
+		<div class="modal-content">
+			<p>みずがめ座のあなた！
+				<br>今日の運勢は、第{{ 10insert_rank }}位!<br>
+				<br>{{ 10insert_content }}<br>
+				<br>総合運:{{ 10insert_total }}
+				<br>金運:{{ 10insert_money }}
+				<br>仕事運:{{ 10insert_job }}
+				<br>恋愛運:{{ 10insert_love }}
+				<br>ラッキーカラー:{{ 10insert_color }}
+				<br>ラッキーアイテム:{{ 10insert_item }}
+				<br>今日のおすすめソング</p>
+		  <a href="#" class="js-modal-close">閉じる</a>
+		</div>
+	</div>
+	
+	<div id="modal012" class="modal js-modal">
+	  <div class="modal-bg js-modal-close">
+	  </div>
+		<div class="modal-content">
+			<p>うお座のあなた！
+				<br>今日の運勢は、第{{ 11insert_rank }}位!<br>
+				<br>{{ 11insert_content }}<br>
+				<br>総合運:{{ 11insert_total }}
+				<br>金運:{{ 11insert_money }}
+				<br>仕事運:{{ 11insert_job }}
+				<br>恋愛運:{{ 11insert_love }}
+				<br>ラッキーカラー:{{ 11insert_color }}
+				<br>ラッキーアイテム:{{ 11insert_item }}
+				<br>今日のおすすめソング</p>
+		  <a href="#" class="js-modal-close">閉じる</a>
+		</div>
+	</div>
+
+<script>
+// モーダルウィンドウを開く
+$('.js-modal-open').on('click', function(){
+  var target = $(this).data('target');
+  var modal = document.getElementById(target);
+  scrollPosition = $(window).scrollTop();
+
+  $('body').addClass('fixed').css({'top': -scrollPosition});
+  $(modal).fadeIn();
+  return false;
+});
+
+// モーダルウィンドウを閉じる
+$('.js-modal-close').on('click', function(){
+  $('body').removeClass('fixed');
+  window.scrollTo( 0 , scrollPosition );
+  $('.js-modal').fadeOut();
+  return false;
+});
+
+////////////////text返すためのajaxの記述　　↓　　　////////
+
+  $.ajax({
+    url: "{% url 'FortuneMusic_App:call_file' %}",
+    method: 'GET',
+    data: {"seiza":txt,},
+    dataType: "json",
+    contentType: "application/json",
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+        xhr.setRequestHeader("X-CSRFToken", csrf_token);
+      }
+    },
+    error: function(xhr, status, error) {
+      console.log("error")
+    }
+    })
+  .done(function(file) {
+    // views.pyのcall_write_data()にてreturnしたHttpResponse(data)のデータはここで取得できる。
+    // フォームの下部に追記したspan部分の内容を書き換える。
+    document.getElementById("text").textContent=file[1];
+    console.log("Success"); 
+  });
+  // csrf_tokenの取得に使う
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
         }
+      }
+    }
+    return cookieValue;
+  }
 
-      </script>
-  </body>
+  // ヘッダにcsrf_tokenを付与する関数
+  function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  };
+////////////////text返すためのajaxの記述   ↑    //////////
+
+</script>
+<!-- / ここまで -->
+
+
+<footer id="footer">
+	powerd by <a href="http://jugemkey.jp/api/">JugemKey</a>
+	【PR】<a href="http://www.tarim.co.jp/">原宿占い館 塔里木</a>
+	Copyright(c) 2016 Sample Inc. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank">http://f-tpl.com</a><!-- ←クレジット表記を外す場合はシリアルキーが必要です http://f-tpl.com/credit/ -->
+</footer>
+
+</body>
 </html>
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete

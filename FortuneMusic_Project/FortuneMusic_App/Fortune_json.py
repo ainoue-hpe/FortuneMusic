@@ -53,13 +53,7 @@ Fortune_dict=point_dict
 
 
 
-# htmlからのデータをcsvファイルに記録
-def write_csv(data):
-    #datas = [data]
-    datas=point_dict[data]["content"] #datasにpoint_dict[data]の内容を代入（星座名がdataに入る）#[data]の後ろは引き出したい要素
-    sample=json.dumps(datas, indent=4, ensure_ascii=False) #sampleにdict型のdatasをjsonファイル（テキスト）にして代入
 
-    return sample
 
     #↓csv出力関連
     #with open(os.getcwd()+'/FortuneMusic_App/application/'+'data.csv','a') as f:

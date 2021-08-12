@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HTML</title>
+    <link rel='stylesheet' type='text/css' href="{% static 'style.css' %}"/>
+    <script type="text/javascript" src="{% static 'script.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+      <span>該当する星座のボタンを押してください</span>
+      <br>
+      <!--<input type="text" size="50" id="input_form">-->
+      <button id=button_1 type="button" value="牡羊座" onclick="clickBtn(1)">牡羊座</button>
+      <button id=button_2 type="button" value="牡牛座" onclick="clickBtn(2)">牡牛座</button>
+      <button id=button_3 type="button" value="双子座" onclick="clickBtn(3)">双子座</button>
+      <button id=button_4 type="button" value="蟹座" onclick="clickBtn(4)">蟹座</button>
+      <button id=button_5 type="button" value="獅子座" onclick="clickBtn(5)">獅子座</button>
+      <button id=button_6 type="button" value="乙女座" onclick="clickBtn(6)">乙女座</button>
+      <button id=button_7 type="button" value="天秤座" onclick="clickBtn(7)">天秤座</button>
+      <button id=button_8 type="button" value="蠍座" onclick="clickBtn(8)">蠍座</button>
+      <button id=button_9 type="button" value="射手座" onclick="clickBtn(9)">射手座</button>
+      <button id=button_10 type="button" value="山羊座" onclick="clickBtn(10)">山羊座</button>
+      <button id=button_11 type="button" value="水瓶座" onclick="clickBtn(11)">水瓶座</button>
+      <button id=button_12 type="button" value="魚座" onclick="clickBtn(12)">魚座</button>
+
+      <!-- views.pyから渡された文字列を表示する。 -->
+      <br>
+     <div >星座:<span id="sign" ></span></div>
+     <div >今日の運勢ランキング:<span id="rank" ></span></div>
+     <div >総合運:<span id="total" ></span></div>
+     <div >恋愛運:<span id="love" ></span></div>
+     <div >仕事運:<span id="job" ></span></div>
+     <div >金運:<span id="money" ></span></div>
+     <div >ラッキーカラー:<span id="color" ></span></div>
+     <div >ラッキーアイテム:<span id="item" ></span></div>
+     <div >今日のひとこと:<span id="content" ></span></div>
+     <div>今日のあなたへのおすすめプレイリスト:</div>
+     <span id="text"></span></a>
+     <br>
+     <span id="text"></span>
+    
+
+      <script>
+
+        //どのボタンを押したか
+        function clickBtn(btn) {
+          if(btn==1){
+            var txt = document.getElementById("button_1").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }else if(btn==2){
+            var txt = document.getElementById("button_2").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }else if(btn==3){
+            var txt = document.getElementById("button_3").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }else if(btn==4){
+            var txt = document.getElementById("button_4").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }else if(btn==5){
+            var txt = document.getElementById("button_5").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }else if(btn==6){
+            var txt = document.getElementById("button_6").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }else if(btn==7){
+            var txt = document.getElementById("button_7").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }else if(btn==8){
+            var txt = document.getElementById("button_8").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }else if(btn==9){
+            var txt = document.getElementById("button_9").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }else if(btn==10){
+            var txt = document.getElementById("button_10").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }else if(btn==11){
+            var txt = document.getElementById("button_11").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }else if(btn==12){
+            var txt = document.getElementById("button_12").value;
+            var myp = document.getElementById("sign");
+            myp.innerHTML = txt;
+          }
+
+
+
+
+
+
+          $.ajax({
+            url: "{% url 'FortuneMusic_App:call_file' %}",
+            method: 'GET',
+            data: {"seiza":txt,},
+            dataType: "json",
+            contentType: "application/json",
+            beforeSend: function(xhr, settings) {
+              if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrf_token);
+              }
+            },
+            error: function(xhr, status, error) {
+              console.log("error")
+            }
+          })
+          .done(function(file) {
+            // views.pyのcall_write_data()にてreturnしたHttpResponse(data)のデータはここで取得できる。
+            // フォームの下部に追記したspan部分の内容を書き換える。
+            document.getElementById("text").textContent=file[1];
+            console.log("Success"); 
+          });
+
+
+
+       
+
+
+
+          
+ 
+          // csrf_tokenの取得に使う
+          function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+              var cookies = document.cookie.split(';');
+              for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                  cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                  break;
+                }
+              }
+            }
+            return cookieValue;
+          }
+
+          // ヘッダにcsrf_tokenを付与する関数
+          function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+          };
+        }
+
+      </script>
+  </body>
+</html>
