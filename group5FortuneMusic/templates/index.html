@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 
 
-<title>SAMPLE COMPANY | 毎日の占いとあなたにピッタリな音楽を提供します</title>
+<title>MIT48 | 毎日の占いとあなたにピッタリな音楽を提供します</title>
 <link rel="stylesheet" media="all" href="{% static 'style.css' %}" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script src="js/script.js"></script>
@@ -161,246 +161,487 @@
 		  <div class=thema>
 			<p><br>Aries×{{ insert_rank }}位
 		  </div>
-			<br><!--span style="background-color: #7fffff;"-->{{ insert_content }}</span><br>
-			<br><!--span style="color:green;font-weight:bold"-->総合運</span><img src="{% static 'images/総合運{{ insert_total }}.png' %}">
-			<br><!--span style="color:yellow;font-weight:bold"3-->金運</span>:{{ insert_money }}
-			<br><!--span style="color:blue;font-weight:bold"-->仕事運</span>:{{ insert_job }}
-			<br><!--span style="color:palevioletred;font-weight:bold"-->恋愛運</span>:{{ insert_love }}
-			<br>ラッキーカラー:{{ insert_color }}
-			<br>ラッキーアイテム:{{ insert_item }}
+			<br>{{ insert_content }}<br>
+			<br>総合運　：　<img src="{% static 'images/総合運' %}{{ insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ insert_love }}.png"style="vertical-align: middle">
+			<br>ラッキーカラー　：　{{ insert_color }}
+			<br>ラッキーアイテム：　{{ insert_item }}
 			<br>今日のおすすめソング</p>
 	  
   
 	  </div>
   </div>
+  
+  <div id="modal02" class="modal js-modal">
+	  <div class="modal-content">
+		  <div class=floatButton1>
+			  <a href="#" class="js-modal-close" > × </a>
+			  <script type="text/javascript">
+				var imglist = new Array(
+				   "{% static 'images/01.png' %}",
+				   "{% static 'images/02.png' %}",
+				   "{% static 'images/03.png' %}",
+				   "{% static 'images/04.png' %}",
+				   "{% static 'images/05.png' %}",
+				   "{% static 'images/06.png' %}",
+				   "{% static 'images/07.png' %}",
+				   "{% static 'images/08.png' %}",
+				   "{% static 'images/09.png' %}",
+				   "{% static 'images/10.png' %}",
+				   "{% static 'images/11.png' %}",
+				   "{% static 'images/12.png' %}",
+				   );
+				var selectnum = Math.floor(Math.random() * imglist.length);
+				var output = "<img src=" + imglist[selectnum] + ">";
+				document.write(output);
+			 </script>
 
-<div id="modal02" class="modal js-modal">
-  <div class="modal-bg js-modal-close">
-  </div>
-    <div class="modal-content">
-      <p>おうし座のあなた
-		<br>今日の運勢は、第{{ 1insert_rank }}位!<br>
-		<br>{{ 1insert_content }}<br>
-		<br>総合運:{{ 1insert_total }}
-		<br>金運:{{ 1insert_money }}
-		<br>仕事運:{{ 1insert_job }}
-		<br>恋愛運:{{ 1insert_love }}
-		<br>ラッキーカラー:{{ 1insert_color }}
-		<br>ラッキーアイテム:{{ 1insert_item }}
-		<br>今日のおすすめソング</p>
-	  </p>
-      <a href="#" class="js-modal-close">閉じる</a>
-    </div>
-</div>
+		  </div>
+		  <div class=thema>
+			<p><br>Taurus×{{ 1insert_rank }}位
+		  </div>
+		  <br>{{ 1insert_content }}<br>
+		  <br>総合運　：　<img src="{% static 'images/総合運' %}{{ 1insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ 1insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ 1insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ 1insert_love }}.png"style="vertical-align: middle">
+		  <br>ラッキーカラー　：{{ 1insert_color }}
+		  <br>ラッキーアイテム：{{ 1insert_item }}
+		  <br>今日のおすすめソング</p>
 
-<div id="modal03" class="modal js-modal">
-  <div class="modal-bg js-modal-close">
+	  </div>
   </div>
-    <div class="modal-content">
-      <p>ふたご座のあなた
-		<br>今日の運勢は、第{{ 2insert_rank }}位!<br>
-		<br>{{ 2insert_content }}<br>
-		<br>総合運:{{ 2insert_total }}
-		<br>金運:{{ 2insert_money }}
-		<br>仕事運:{{ 2insert_job }}
-		<br>恋愛運:{{ 2insert_love }}
-		<br>ラッキーカラー:{{ 2insert_color }}
-		<br>ラッキーアイテム:{{ 2insert_item }}
-		<br>今日のおすすめソング</p></p>
-      <a href="#" class="js-modal-close">閉じる</a>
-    </div>
-</div>
+  
+  <div id="modal03" class="modal js-modal">
+	  <div class="modal-content">
+		  <div class=floatButton1>
+			  <a href="#" class="js-modal-close" > × </a>
+			  <script type="text/javascript">
+				var imglist = new Array(
+				   "{% static 'images/01.png' %}",
+				   "{% static 'images/02.png' %}",
+				   "{% static 'images/03.png' %}",
+				   "{% static 'images/04.png' %}",
+				   "{% static 'images/05.png' %}",
+				   "{% static 'images/06.png' %}",
+				   "{% static 'images/07.png' %}",
+				   "{% static 'images/08.png' %}",
+				   "{% static 'images/09.png' %}",
+				   "{% static 'images/10.png' %}",
+				   "{% static 'images/11.png' %}",
+				   "{% static 'images/12.png' %}",
+				   );
+				var selectnum = Math.floor(Math.random() * imglist.length);
+				var output = "<img src=" + imglist[selectnum] + ">";
+				document.write(output);
+			 </script>
 
-<div id="modal04" class="modal js-modal">
-	<div class="modal-bg js-modal-close">
-	</div>
-	  <div class="modal-content">
-		<p>かに座のあなた！
-			<br>今日の運勢は、第{{ 3insert_rank }}位!<br>
-			<br>{{ 3insert_content }}<br>
-			<br>総合運:{{ 3insert_total }}
-			<br>金運:{{ 3insert_money }}
-			<br>仕事運:{{ 3insert_job }}
-			<br>恋愛運:{{ 3insert_love }}
-			<br>ラッキーカラー:{{ 3insert_color }}
-			<br>ラッキーアイテム:{{ 3insert_item }}
-			<br>今日のおすすめソング</p>
-		<a href="#" class="js-modal-close">閉じる</a>
+		  </div>
+		  <div class=thema>
+			<p><br>Gemini×{{ 2insert_rank }}位
+			</div>
+		  <br>{{ 2insert_content }}<br>
+		  <br>総合運　：　<img src="{% static 'images/総合運' %}{{ 2insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ 2insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ 2insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ 2insert_love }}.png"style="vertical-align: middle">
+			<br>ラッキーカラー　：　{{ 2insert_color }}
+			<br>ラッキーアイテム：　{{ 2insert_item }}
+		  <br>今日のおすすめソング</p></p>
+		
 	  </div>
   </div>
   
-  <div id="modal05" class="modal js-modal">
-	<div class="modal-bg js-modal-close">
-	</div>
+  <div id="modal04" class="modal js-modal">
 	  <div class="modal-content">
-		<p>しし座のあなた！
-			<br>今日の運勢は、第{{ 4insert_rank }}位!<br>
-			<br>{{ 4insert_content }}<br>
-			<br>総合運:{{ 4insert_total }}
-			<br>金運:{{ 4insert_money }}
-			<br>仕事運:{{ 4insert_job }}
-			<br>恋愛運:{{ 4insert_love }}
-			<br>ラッキーカラー:{{ 4insert_color }}
-			<br>ラッキーアイテム:{{ 4insert_item }}
-			<br>今日のおすすめソング</p>
-		<a href="#" class="js-modal-close">閉じる</a>
-	  </div>
-  </div>
-  
-  <div id="modal06" class="modal js-modal">
-	<div class="modal-bg js-modal-close">
-	</div>
-	  <div class="modal-content">
-		<p>おとめ座のあなた！
-			<br>今日の運勢は、第{{ 5insert_rank }}位!<br>
-			<br>{{ 5insert_content }}<br>
-			<br>総合運:{{ 5insert_total }}
-			<br>金運:{{ 5insert_money }}
-			<br>仕事運:{{ 5insert_job }}
-			<br>恋愛運:{{ 5insert_love }}
-			<br>ラッキーカラー:{{ 5insert_color }}
-			<br>ラッキーアイテム:{{ 5insert_item }}
-			<br>今日のおすすめソング</p>
-		<a href="#" class="js-modal-close">閉じる</a>
-	  </div>
-  </div>
+		  <div class=floatButton1>
+			  <a href="#" class="js-modal-close" > × </a>
+			  <script type="text/javascript">
+				  var imglist = new Array(
+					 "{% static 'images/01.png' %}",
+					 "{% static 'images/02.png' %}",
+					 "{% static 'images/03.png' %}",
+					 "{% static 'images/04.png' %}",
+					 "{% static 'images/05.png' %}",
+					 "{% static 'images/06.png' %}",
+					 "{% static 'images/07.png' %}",
+					 "{% static 'images/08.png' %}",
+					 "{% static 'images/09.png' %}",
+					 "{% static 'images/10.png' %}",
+					 "{% static 'images/11.png' %}",
+					 "{% static 'images/12.png' %}",
+					 );
+				  var selectnum = Math.floor(Math.random() * imglist.length);
+				  var output = "<img src=" + imglist[selectnum] + ">";
+				  document.write(output);
+			   </script>
 
-  <div id="modal07" class="modal js-modal">
-	<div class="modal-bg js-modal-close">
-	</div>
-	  <div class="modal-content">
-		<p>てんびん座のあなた！
-			<br>今日の運勢は、第{{ 6insert_rank }}位!<br>
-			<br>{{ 6insert_content }}<br>
-			<br>総合運:{{ 6insert_total }}
-			<br>金運:{{ 6insert_money }}
-			<br>仕事運:{{ 6insert_job }}
-			<br>恋愛運:{{ 6insert_love }}
-			<br>ラッキーカラー:{{ 6insert_color }}
-			<br>ラッキーアイテム:{{ 6insert_item }}
-			<br>今日のおすすめソング</p>
-		<a href="#" class="js-modal-close">閉じる</a>
-	  </div>
-  </div>
-  
-  <div id="modal08" class="modal js-modal">
-	<div class="modal-bg js-modal-close">
-	</div>
-	  <div class="modal-content">
-		<p>さそり座のあなた！
-			<br>今日の運勢は、第{{ 7insert_rank }}位!<br>
-			<br>{{ 7insert_content }}<br>
-			<br>総合運:{{ 7insert_total }}
-			<br>金運:{{ 7insert_money }}
-			<br>仕事運:{{ 7insert_job }}
-			<br>恋愛運:{{ 7insert_love }}
-			<br>ラッキーカラー:{{ 7insert_color }}
-			<br>ラッキーアイテム:{{ 7insert_item }}
-			<br>今日のおすすめソング</p>
-		<a href="#" class="js-modal-close">閉じる</a>
-	  </div>
-  </div>
-  
-  <div id="modal09" class="modal js-modal">
-	<div class="modal-bg js-modal-close">
-	</div>
-	  <div class="modal-content">
-		<p>いて座のあなた！
-			<br>今日の運勢は、第{{ 8insert_rank }}位!<br>
-			<br>{{ 8insert_content }}<br>
-			<br>総合運:{{ 8insert_total }}
-			<br>金運:{{ 8insert_money }}
-			<br>仕事運:{{ 8insert_job }}
-			<br>恋愛運:{{ 8insert_love }}
-			<br>ラッキーカラー:{{ 8insert_color }}
-			<br>ラッキーアイテム:{{ 8insert_item }}
-			<br>今日のおすすめソング</p>
-		<a href="#" class="js-modal-close">閉じる</a>
-	  </div>
-  </div>
-  
-  <div id="modal010" class="modal js-modal">
-	  <div class="modal-bg js-modal-close">
-	  </div>
-		<div class="modal-content">
-			<p>やぎ座のあなた！
-				<br>今日の運勢は、第{{ 9insert_rank }}位!<br>
-				<br>{{ 9insert_content }}<br>
-				<br>総合運:{{ 9insert_total }}
-				<br>金運:{{ 9insert_money }}
-				<br>仕事運:{{ 9insert_job }}
-				<br>恋愛運:{{ 9insert_love }}
-				<br>ラッキーカラー:{{ 9insert_color }}
-				<br>ラッキーアイテム:{{ 9insert_item }}
-				<br>今日のおすすめソング</p>
-		  <a href="#" class="js-modal-close">閉じる</a>
+		  </div>
+		  <div class=thema>
+			<p><br>Cancer×{{ 3insert_rank }}位
+			</div>
+			  <br>{{ 3insert_content }}<br>
+			  <br>総合運　：　<img src="{% static 'images/総合運' %}{{ 3insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ 3insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ 3insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ 3insert_love }}.png"style="vertical-align: middle">
+			<br>ラッキーカラー　：　{{ 3insert_color }}
+			<br>ラッキーアイテム：　{{ 3insert_item }}
+			  <br>今日のおすすめソング</p>
 		</div>
 	</div>
 	
-	<div id="modal011" class="modal js-modal">
-	  <div class="modal-bg js-modal-close">
-	  </div>
-		<div class="modal-content">
-			<p>みずがめ座のあなた！
-				<br>今日の運勢は、第{{ 10insert_rank }}位!<br>
-				<br>{{ 10insert_content }}<br>
-				<br>総合運:{{ 10insert_total }}
-				<br>金運:{{ 10insert_money }}
-				<br>仕事運:{{ 10insert_job }}
-				<br>恋愛運:{{ 10insert_love }}
-				<br>ラッキーカラー:{{ 10insert_color }}
-				<br>ラッキーアイテム:{{ 10insert_item }}
-				<br>今日のおすすめソング</p>
-		  <a href="#" class="js-modal-close">閉じる</a>
+	<div id="modal05" class="modal js-modal">
+	  <div class="modal-content">
+		  <div class=floatButton1>
+			  <a href="#" class="js-modal-close" > × </a>
+			  <script type="text/javascript">
+				  var imglist = new Array(
+					 "{% static 'images/01.png' %}",
+					 "{% static 'images/02.png' %}",
+					 "{% static 'images/03.png' %}",
+					 "{% static 'images/04.png' %}",
+					 "{% static 'images/05.png' %}",
+					 "{% static 'images/06.png' %}",
+					 "{% static 'images/07.png' %}",
+					 "{% static 'images/08.png' %}",
+					 "{% static 'images/09.png' %}",
+					 "{% static 'images/10.png' %}",
+					 "{% static 'images/11.png' %}",
+					 "{% static 'images/12.png' %}",
+					 );
+				  var selectnum = Math.floor(Math.random() * imglist.length);
+				  var output = "<img src=" + imglist[selectnum] + ">";
+				  document.write(output);
+			   </script>
+
+		  </div>
+		  <div class=thema>
+			<p><br>Leo×{{ 4insert_rank }}位
+		  </div>
+			  <br>{{ 4insert_content }}<br>
+			  <br>総合運　：　<img src="{% static 'images/総合運' %}{{ 4insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ 4insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ 4insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ 4insert_love }}.png"style="vertical-align: middle">
+			<br>ラッキーカラー　：　{{ insert_color }}
+			<br>ラッキーアイテム：　{{ insert_item }}
+			  <br>今日のおすすめソング</p>
+		  
 		</div>
 	</div>
 	
-	<div id="modal012" class="modal js-modal">
-	  <div class="modal-bg js-modal-close">
-	  </div>
-		<div class="modal-content">
-			<p>うお座のあなた！
-				<br>今日の運勢は、第{{ 11insert_rank }}位!<br>
-				<br>{{ 11insert_content }}<br>
-				<br>総合運:{{ 11insert_total }}
-				<br>金運:{{ 11insert_money }}
-				<br>仕事運:{{ 11insert_job }}
-				<br>恋愛運:{{ 11insert_love }}
-				<br>ラッキーカラー:{{ 11insert_color }}
-				<br>ラッキーアイテム:{{ 11insert_item }}
-				<br>今日のおすすめソング</p>
-		  <a href="#" class="js-modal-close">閉じる</a>
+	<div id="modal06" class="modal js-modal">
+	  <div class="modal-content">
+		  <div class=floatButton1>
+			  <a href="#" class="js-modal-close" > × </a>
+			  <script type="text/javascript">
+				  var imglist = new Array(
+					 "{% static 'images/01.png' %}",
+					 "{% static 'images/02.png' %}",
+					 "{% static 'images/03.png' %}",
+					 "{% static 'images/04.png' %}",
+					 "{% static 'images/05.png' %}",
+					 "{% static 'images/06.png' %}",
+					 "{% static 'images/07.png' %}",
+					 "{% static 'images/08.png' %}",
+					 "{% static 'images/09.png' %}",
+					 "{% static 'images/10.png' %}",
+					 "{% static 'images/11.png' %}",
+					 "{% static 'images/12.png' %}",
+					 );
+				  var selectnum = Math.floor(Math.random() * imglist.length);
+				  var output = "<img src=" + imglist[selectnum] + ">";
+				  document.write(output);
+			   </script>
+
+		  </div>
+		  <div class=thema>
+			<p><br>Virgo×{{ 5insert_rank }}位
+		  </div>
+			  <br>{{ 5insert_content }}<br>
+			  <br>総合運　：　<img src="{% static 'images/総合運' %}{{ 5insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ 5insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ 5insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ 5insert_love }}.png"style="vertical-align: middle">
+			<br>ラッキーカラー　：　{{ 5insert_color }}
+			<br>ラッキーアイテム：　{{ 5insert_item }}
+			  <br>今日のおすすめソング</p>
+		  
 		</div>
 	</div>
+  
+	<div id="modal07" class="modal js-modal">
+	  <div class="modal-content">
+		  <div class=floatButton1>
+			  <a href="#" class="js-modal-close" > × </a>
+			  <script type="text/javascript">
+				  var imglist = new Array(
+					 "{% static 'images/01.png' %}",
+					 "{% static 'images/02.png' %}",
+					 "{% static 'images/03.png' %}",
+					 "{% static 'images/04.png' %}",
+					 "{% static 'images/05.png' %}",
+					 "{% static 'images/06.png' %}",
+					 "{% static 'images/07.png' %}",
+					 "{% static 'images/08.png' %}",
+					 "{% static 'images/09.png' %}",
+					 "{% static 'images/10.png' %}",
+					 "{% static 'images/11.png' %}",
+					 "{% static 'images/12.png' %}",
+					 );
+				  var selectnum = Math.floor(Math.random() * imglist.length);
+				  var output = "<img src=" + imglist[selectnum] + ">";
+				  document.write(output);
+			   </script>
 
-<script>
-// モーダルウィンドウを開く
-$('.js-modal-open').on('click', function(){
-  var target = $(this).data('target');
-  var modal = document.getElementById(target);
-  scrollPosition = $(window).scrollTop();
+		  </div>
+		  <div class=thema>
+			<p><br>Libra×{{ 6insert_rank }}位
+			</div>
+			  <br>{{ 6insert_content }}<br>
+			  <br>総合運　：　<img src="{% static 'images/総合運' %}{{ 6insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ 6insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ 6insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ 6insert_love }}.png"style="vertical-align: middle">
+			<br>ラッキーカラー　：　{{ 6insert_color }}
+			<br>ラッキーアイテム：　{{ 6insert_item }}
+			  <br>今日のおすすめソング</p>
+		  
+		</div>
+	</div>
+	
+	<div id="modal08" class="modal js-modal">
+	  <div class="modal-content">
+		  <div class=floatButton1>
+			  <a href="#" class="js-modal-close" > × </a>
+			  <script type="text/javascript">
+				  var imglist = new Array(
+					 "{% static 'images/01.png' %}",
+					 "{% static 'images/02.png' %}",
+					 "{% static 'images/03.png' %}",
+					 "{% static 'images/04.png' %}",
+					 "{% static 'images/05.png' %}",
+					 "{% static 'images/06.png' %}",
+					 "{% static 'images/07.png' %}",
+					 "{% static 'images/08.png' %}",
+					 "{% static 'images/09.png' %}",
+					 "{% static 'images/10.png' %}",
+					 "{% static 'images/11.png' %}",
+					 "{% static 'images/12.png' %}",
+					 );
+				  var selectnum = Math.floor(Math.random() * imglist.length);
+				  var output = "<img src=" + imglist[selectnum] + ">";
+				  document.write(output);
+			   </script>
 
-  $('body').addClass('fixed').css({'top': -scrollPosition});
-  $(modal).fadeIn();
-  return false;
-});
+		  </div>
+		  <div class=thema>
+			<p><br>Scorpio×{{ 7insert_rank }}位
+		  </div>
+			  <br>{{ 7insert_content }}<br>
+			  <br>総合運　：　<img src="{% static 'images/総合運' %}{{ 7insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ 7insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ 7insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ 7insert_love }}.png"style="vertical-align: middle">
+			<br>ラッキーカラー　：　{{ 7insert_color }}
+			<br>ラッキーアイテム：　{{ 7insert_item }}
+			  <br>今日のおすすめソング</p>
+		  
+		</div>
+	</div>
+	
+	<div id="modal09" class="modal js-modal">
+	  <div class="modal-content">
+		  <div class=floatButton1>
+			  <a href="#" class="js-modal-close" > × </a>
+			  <script type="text/javascript">
+				  var imglist = new Array(
+					 "{% static 'images/01.png' %}",
+					 "{% static 'images/02.png' %}",
+					 "{% static 'images/03.png' %}",
+					 "{% static 'images/04.png' %}",
+					 "{% static 'images/05.png' %}",
+					 "{% static 'images/06.png' %}",
+					 "{% static 'images/07.png' %}",
+					 "{% static 'images/08.png' %}",
+					 "{% static 'images/09.png' %}",
+					 "{% static 'images/10.png' %}",
+					 "{% static 'images/11.png' %}",
+					 "{% static 'images/12.png' %}",
+					 );
+				  var selectnum = Math.floor(Math.random() * imglist.length);
+				  var output = "<img src=" + imglist[selectnum] + ">";
+				  document.write(output);
+			   </script>
 
-// モーダルウィンドウを閉じる
-$('.js-modal-close').on('click', function(){
-  $('body').removeClass('fixed');
-  window.scrollTo( 0 , scrollPosition );
-  $('.js-modal').fadeOut();
-  return false;
-});
-</script>
-<!-- / ここまで -->
+		  </div>
+		  <div class=thema>
+			<p><br>Sagittarius×{{ 8insert_rank }}位
+			</div>
+			  <br>{{ 8insert_content }}<br>
+			  <br>総合運　：　<img src="{% static 'images/総合運' %}{{ 8insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ 8insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ 8insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ 8insert_love }}.png"style="vertical-align: middle">
+			<br>ラッキーカラー　：　{{ 8insert_color }}
+			<br>ラッキーアイテム：　{{ 8insert_item }}
+			  <br>今日のおすすめソング</p>
+		
+		</div>
+	</div>
+	
+	<div id="modal10" class="modal js-modal">
+	  <div class="modal-content">
+		  <div class=floatButton1>
+			  <a href="#" class="js-modal-close" > × </a>
+			  <script type="text/javascript">
+				  var imglist = new Array(
+					 "{% static 'images/01.png' %}",
+					 "{% static 'images/02.png' %}",
+					 "{% static 'images/03.png' %}",
+					 "{% static 'images/04.png' %}",
+					 "{% static 'images/05.png' %}",
+					 "{% static 'images/06.png' %}",
+					 "{% static 'images/07.png' %}",
+					 "{% static 'images/08.png' %}",
+					 "{% static 'images/09.png' %}",
+					 "{% static 'images/10.png' %}",
+					 "{% static 'images/11.png' %}",
+					 "{% static 'images/12.png' %}",
+					 );
+				  var selectnum = Math.floor(Math.random() * imglist.length);
+				  var output = "<img src=" + imglist[selectnum] + ">";
+				  document.write(output);
+			   </script>
 
+		  </div>
+		  <div class=thema>
+			<p><br>capricorn×{{ 9insert_rank }}位
+		  </div>
+				  <br>{{ 9insert_content }}<br>
+			<br>総合運　：　<img src="{% static 'images/総合運' %}{{ 9insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ 9insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ 9insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ 9insert_love }}.png"style="vertical-align: middle">
+			<br>ラッキーカラー　：　{{ 9insert_color }}
+			<br>ラッキーアイテム：　{{ 9insert_item }}
+				  <br>今日のおすすめソング</p>
 
-<footer id="footer">
-	powerd by <a href="http://jugemkey.jp/api/">JugemKey</a>
-	【PR】<a href="http://www.tarim.co.jp/">原宿占い館 塔里木</a>
-	Copyright(c) 2016 Sample Inc. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank">http://f-tpl.com</a><!-- ←クレジット表記を外す場合はシリアルキーが必要です http://f-tpl.com/credit/ -->
-</footer>
+		  </div>
+	  </div>
+	  
+	  <div id="modal11" class="modal js-modal">
+		  <div class="modal-content">
+			  <div class=floatButton1>
+				  <a href="#" class="js-modal-close" > × </a>
+				  <script type="text/javascript">
+				  var imglist = new Array(
+					 "{% static 'images/01.png' %}",
+					 "{% static 'images/02.png' %}",
+					 "{% static 'images/03.png' %}",
+					 "{% static 'images/04.png' %}",
+					 "{% static 'images/05.png' %}",
+					 "{% static 'images/06.png' %}",
+					 "{% static 'images/07.png' %}",
+					 "{% static 'images/08.png' %}",
+					 "{% static 'images/09.png' %}",
+					 "{% static 'images/10.png' %}",
+					 "{% static 'images/11.png' %}",
+					 "{% static 'images/12.png' %}",
+					 );
+				  var selectnum = Math.floor(Math.random() * imglist.length);
+				  var output = "<img src=" + imglist[selectnum] + ">";
+				  document.write(output);
+			   </script>
 
-</body>
-</html>
+			  </div>
+			  <div class=thema>
+				<p><br>Aquarius×{{ 10insert_rank }}位
+				</div>
+				  <br>{{ 10insert_content }}<br>
+				  <br>総合運　：　<img src="{% static 'images/総合運' %}{{ 10insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ 10insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ 10insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ 10insert_love }}.png"style="vertical-align: middle">
+			<br>ラッキーカラー　：　{{ 10insert_color }}
+			<br>ラッキーアイテム：　{{ 10insert_item }}
+				  <br>今日のおすすめソング</p>
+			
+		  </div>
+	  </div>
+	  
+	  <div id="modal12" class="modal js-modal">
+		  <div class="modal-content">
+			  <div class=floatButton1>
+				  <a href="#" class="js-modal-close" > × </a>
+				  <script type="text/javascript">
+				  var imglist = new Array(
+					 "{% static 'images/01.png' %}",
+					 "{% static 'images/02.png' %}",
+					 "{% static 'images/03.png' %}",
+					 "{% static 'images/04.png' %}",
+					 "{% static 'images/05.png' %}",
+					 "{% static 'images/06.png' %}",
+					 "{% static 'images/07.png' %}",
+					 "{% static 'images/08.png' %}",
+					 "{% static 'images/09.png' %}",
+					 "{% static 'images/10.png' %}",
+					 "{% static 'images/11.png' %}",
+					 "{% static 'images/12.png' %}",
+					 );
+				  var selectnum = Math.floor(Math.random() * imglist.length);
+				  var output = "<img src=" + imglist[selectnum] + ">";
+				  document.write(output);
+			   </script>
+
+			  </div>
+			  <div class=thema>
+				<p><br>Pisces×{{ 11insert_rank }}位
+				</div>
+				  <br>{{ 11insert_content }}<br>
+				<br>総合運　：　<img src="{% static 'images/総合運' %}{{ 11insert_total }}.png"style="vertical-align: middle">
+			<br>金　運　：　<img src="{% static 'images/金運' %}{{ 11insert_money }}.png"style="vertical-align: middle">
+			<br>仕事運　：　<img src="{% static 'images/仕事運' %}{{ 11insert_job }}.png"style="vertical-align: middle">
+			<br>恋愛運　：　<img src="{% static 'images/恋愛運' %}{{ 11insert_love }}.png"style="vertical-align: middle">
+			<br>ラッキーカラー　：　{{ 11insert_color }}
+			<br>ラッキーアイテム：　{{ 11insert_item }}
+				  <br>今日のおすすめソング</p>
+			
+		  </div>
+	  </div>
+  
+  <script>
+  // モーダルウィンドウを開く
+  $('.js-modal-open').on('click', function(){
+	var target = $(this).data('target');
+	var modal = document.getElementById(target);
+	scrollPosition = $(window).scrollTop();
+  
+	$('body').addClass('fixed').css({'top': -scrollPosition});
+	$(modal).fadeIn();
+	return false;
+  });
+  
+  // モーダルウィンドウを閉じる
+  $('.js-modal-close').on('click', function(){
+	$('body').removeClass('fixed');
+	window.scrollTo( 0 , scrollPosition );
+	$('.js-modal').fadeOut();
+	return false;
+  });
+  </script>
+  <!-- / ここまで -->
+  
+  
+  <footer id="footer">
+	  powerd by <a href="http://jugemkey.jp/api/">JugemKey</a>
+	  【PR】<a href="http://www.tarim.co.jp/">原宿占い館 塔里木</a>
+	  Copyright(c) 2016 Sample Inc. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank">http://f-tpl.com</a><!-- ←クレジット表記を外す場合はシリアルキーが必要です http://f-tpl.com/credit/ -->
+  </footer>
+  
+  </body>
+  </html>
+  
