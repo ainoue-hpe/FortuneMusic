@@ -1,15 +1,15 @@
 {% load static %}
 
-<!doctype html>
-<html lang="ja">
+<!DOCTYPE html>
+<html dir="ltr" lang="ja">
 <head>
 <meta charset="UTF-8">
-
-
-<title>SAMPLE COMPANY | 毎日の占いとあなたにピッタリな音楽を提供します</title>
-<link rel="stylesheet" media="all" href="{% static 'style.css' %}" type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script src="js/script.js"></script>
+<meta name="viewport" content="width=device-width, user-scalable=yes, maximum-scale=1.0, minimum-scale=1.0">
+<title>HPE開発演習グループ５</title>
+<meta name="keywords" content="占い,音楽,グループ５,開発演習">
+<meta name="description" content="毎日の占いとあなたにピッタリな音楽を提供します">
+<link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" media="screen">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <!--[if lt IE 9]>
 <script src="js/html5.js"></script>
@@ -17,162 +17,155 @@
 <![endif]-->
 <script src="{% static 'js/jquery1.7.2.min.js' %}"></script>
 <script src="{% static 'js/script.js' %}"></script>
-
-
 </head>
 
-<body id="top">
-	<div id="mainImg1">
-		<!--p>music&horoscope</p-->
-	</div>
-	<div id="mainImg2">
-		<img src="{% static 'images/main-img.png' %}" alt="">
-		<!--p> 毎日の占いとあなたにピッタリな音楽を</p-->
-	</div>
-	
-</body>
-
+<body style="background-color:black;color:#ffffff;">
 <header id="header">
-	<div id="headerWrap">
-		<!--<h1><img src="images/logo.png" width="142" height="80" alt="logo"></h1>_>-->
-		<nav id="mainnav">
-			<div class="panel">
-				<ul>
-					<li><a href="#top">TOP</a></li>
-					<li><a href="#sec01">MESSAGE</a></li>
-					<li><a href="#sec02">GALLERY</a></li>
-
-				</ul>
-			</div>
-		</nav>
+	<h1>HPE開発演習グループ５のサイトです</h1>
+  <!-- ロゴ -->
+	<div class="logo">
+		<a href="index.html">Fortune Music<br />	
 	</div>
+	<!-- / ロゴ -->
+	<!-- 電話番号+受付時間 -->
+	
 </header>
-
-<!--<div id="mainImg">
-	<img src="images/imageslogo.jpg" alt="">
-	<p> 毎日の占いとあなたにピッタリな音楽を</p>
-</div>-->
-
-<!-- MESSAGE -->
-<section id="sec01">
-	<header>
-		<h2><span>Message</span></h2>
-	</header>
-	<div class="innerS">
-		​好きな歌手はいないけどBGMとして音楽を聞きたい。そんな時に音楽と占いを同時に行い、あなたの生活を彩ります。
+  
+<div id="wrapper">
+  
+  <!-- メイン画像 -->
+	<div id="mainBanner">
+	<img src="{% static 'images/占い音楽.png' %}" alt="占い師の画像" width="500" height="200px" left="100px">
+    <div class="slogan">
+			<h2>毎日の占いとあなたにピッタリな音楽を提供します</h2>
+			<p>好きな歌手はいないけどBGMとして音楽を聞きたい!<br>
+				仕事を始める前の音楽選定と占いが同時にできます！</p>
+		</div>
 	</div>
-</section>
-<!-- // MESSAGE -->
+	<!-- / メイン画像 -->
 
-<!-- GALLERY -->
-<section id="sec02">
-	<header>
-		<h2><span>Gallery</span></h2>
-	</header>
-		<div class="container1 ">
-		<div class="moimg13">
-			<a href="#" class="js-modal-open" data-target="modal01"><img src="{% static 'images/date牡羊座.png' %}" width="150" height="150" alt=""></a>
-		</div>
-		<div class="moimg13">
-			<a href="#" class="js-modal-open" data-target="modal02"><img src="{% static 'images/date牡牛座.png' %}" width="150" height="150" alt=""></a>
-		</div>	
-		<div class="moimg13">
-			<a href="#" class="js-modal-open" data-target="modal03"><img src="{% static 'images/date双子座.png' %}" width="150" height="150" alt=""></a>
-		</div>		
-		<div class="moimg13">
-			<a href="#" class="js-modal-open" data-target="modal04"><img src="{% static 'images/date蟹座.png' %}"width="150" height="150" alt=""></a>
-		</div>	
-		<div class="moimg13">
-			<a href="#" class="js-modal-open" data-target="modal05"><img src="{% static 'images/date獅子座.png' %}" width="150" height="150" alt=""></a>
-		</div>	
-		<div class="moimg13">
-			<a href="#" class="js-modal-open" data-target="modal06"><img src="{% static 'images/date乙女座.png' %}"width="150" height="150" alt=""></a>
-		</div>
-		</div>			
-	<!--div class="div-equal-box1">
-		<p>3/21~4/19</p>
-		<p>4/20~5/20</p>
-		<p>5/21~6/21</p>
-		<p>6/22~7/22</p>
-		<p>7/23~8/22</p>
-		<p>8/23~10/23</p>
-	</div-->
-		
-
-		<div class="container2">
-			<div class="moimg13">
-				<a href="#" class="js-modal-open" data-target="modal07"><img src="{% static 'images/date天秤座.png' %}" width="150" height="150" alt=""></a>
+  <!-- 3カラム -->
+  <section class="gridWrapper">
+		<article class="grid">
+      <div class="box">
+				<img src="{% static 'images/おひつじ座.png' %}" width="75" height="75" alt="" class="alignleft">
+				<h3>おひつじ座</h3>
+				<p>Aries　アリエス　　3/21~4/19</p>
+				<a href="#" class="js-modal-open" data-target="modal01">おひつじ座を占う</a>
+      </div>
+		</article>
+		<article class="grid">
+			<div class="box">
+      	<img src="{% static 'images/おうし座.png' %}" width="75" height="75" alt="" class="alignleft">
+				<h3>おうし座</h3>
+				<p>Taurus　タウラス　　4/20~5/20</p>
+				<a href="#" class="js-modal-open" data-target="modal02">おうし座を占う</a>
+      </div>
+		</article>
+    <article class="grid">
+    	<div class="box">
+				<img src="{% static 'images/ふたご座.png' %}" width="75" height="75" alt="" class="alignleft">
+				<h3>ふたご座</h3>
+				<p>Gemini　ジェミニ　5/21~6/21</p>
+				<a href="#" class="js-modal-open" data-target="modal03">ふたご座を占う</a>
 			</div>
-			<div class="moimg13">
-				<a href="#" class="js-modal-open" data-target="modal08"><img src="{% static 'images/date蠍座.png' %}" width="150" height="150" alt=""></a>
-			</div>	
-			<div class="moimg13">
-				<a href="#" class="js-modal-open" data-target="modal09"><img src="{% static 'images/date射手座.png' %}" width="150" height="150" alt=""></a>
-			</div>		
-			<div class="moimg13">
-				<a href="#" class="js-modal-open" data-target="modal10"><img src="{% static 'images/date山羊座.png' %}"width="150" height="150" alt=""></a>
-			</div>	
-			<div class="moimg13">
-				<a href="#" class="js-modal-open" data-target="modal11"><img src="{% static 'images/date水瓶座.png' %}" width="150" height="150" alt=""></a>
-			</div>	
-			<div class="moimg13">
-				<a href="#" class="js-modal-open" data-target="modal12"><img src="{% static 'images/date魚座.png' %}"width="150" height="150" alt=""></a>
+		</article>
+		<article class="grid">
+			<div class="box">
+      	<img src="{% static 'images/かに座.png' %}" width="75" height="75" alt="" class="alignleft">
+				<h3>かに座</h3>
+				<p>Cancer　キャンサー　　6/22~7/22</p>
+				<a href="#" class="js-modal-open" data-target="modal04">かに座を占う</a>
+      </div>
+		</article>
+    <article class="grid">
+    	<div class="box">
+				<img src="{% static 'images/しし座.png' %}" width="75" height="75" alt="" class="alignleft">
+				<h3>しし座</h3>
+				<p>Leo　レオ　　　　　7/23~8/22</p>
+				<a href="#" class="js-modal-open" data-target="modal05">しし座を占う</a>
 			</div>
-			</div>			
-	<!--div class="div-equal-box2">
-		<p>9/23~10/23</p>
-		<p>10/24~11/22</p>
-		<p>11/23~12/21</p>
-		<p>12/22~1/19</p>
-		<p>1/20~2/18</p>
-		<p> 2/19~3/20</p>
-	</div-->
+		</article>
+		<article class="grid">
+			<div class="box">
+      	<img src="{% static 'images/おとめ座.png' %}" width="75" height="75" alt="" class="alignleft">
+				<h3>おとめ座</h3>
+				<p>Virgo　ヴァルゴ　　　8/23~10/23</p>
+				<a href="#" class="js-modal-open" data-target="modal06">おとめ座を占う</a>
+      </div>
+		</article>
+    <article class="grid">
+    	<div class="box">
+				<img src="{% static 'images/てんびん座.png' %}" width="75" height="75" alt="" class="alignleft">
+				<h3>てんびん座</h3>
+				<p>Libra　ライブラ　　　9/23~10/23</p>
+				<a href="#" class="js-modal-open" data-target="modal07">てんびん座を占う</a>
+			</div>
+		</article>
+		<article class="grid">
+			<div class="box">
+      	<img src="{% static 'images/さそり座.png' %}" width="75" height="75" alt="" class="alignleft">
+				<h3>さそり座</h3>
+				<p>Scorpio　スコーピオ　　10/24~11/22</p>
+				<a href="#" class="js-modal-open" data-target="modal08">さそり座を占う</a>
+      </div>
+		</article>
+    <article class="grid">
+    	<div class="box">
+				<img src="{% static 'images/いて座.png' %}" width="75" height="75" alt="" class="alignleft">
+				<h3>いて座</h3>
+				<p>Sagittarius　サジタリアス　11/23~12/21</p>
+				<a href="#" class="js-modal-open" data-target="modal09">いて座を占う</a>
+			</div>
+		</article>
+		<article class="grid">
+			<div class="box">
+					<img src="{% static 'images/やぎ座.png' %}" width="75" height="75" alt="" class="alignleft">
+					<h3>やぎ座</h3>
+					<p>capricorn　カプリコーン　12/22~1/19</p>
+					<a href="#" class="js-modal-open" data-target="modal010">やぎ座を占う</a>
+				</div>
+			</article>
+			<article class="grid">
+				<div class="box">
+			  <img src="{% static 'images/みずがめ座.png' %}" width="75" height="75" alt="" class="alignleft">
+					<h3>みずがめ座</h3>
+					<p>Aquarius　アクエリアス　1/20~2/18</p>
+					<a href="#" class="js-modal-open" data-target="modal011">みずがめ座を占う</a>
+		  </div>
+			</article>
+		<article class="grid">
+			<div class="box">
+					<img src="{% static 'images/うお座.png' %}" width="75" height="75" alt="" class="alignleft">
+					<h3>うお座</h3>
+					<p>Pisces　ピスケス　    <br>  2/19~3/20</p>
+					<a href="#" class="js-modal-open" data-target="modal012">うお座を占う</a>
+				</div>
+	</section>
+	<!-- / 3カラム -->
+</div>
 
-<!-- // COMPANY -->
+
+
 <!-- / ここから -->
 <div id="modal01" class="modal js-modal">
-	<div class="modal-bg js-modal-close">
-	</div>
-	
-	  <div class="modal-content">
-		  <div class=floatButton1>
-			  <a href="#" class="js-modal-close" > × </a>
-			  <script type="text/javascript">
-				  var imglist = new Array(
-					 "{% static 'images/01.png' %}",
-					 "{% static 'images/02.png' %}",
-					 "{% static 'images/03.png' %}",
-					 "{% static 'images/04.png' %}",
-					 "{% static 'images/05.png' %}",
-					 "{% static 'images/06.png' %}",
-					 "{% static 'images/07.png' %}",
-					 "{% static 'images/08.png' %}",
-					 "{% static 'images/09.png' %}",
-					 "{% static 'images/10.png' %}",
-					 "{% static 'images/11.png' %}",
-					 "{% static 'images/12.png' %}",
-					 );
-				  var selectnum = Math.floor(Math.random() * imglist.length);
-				  var output = "<img src=" + imglist[selectnum] + ">";
-				  document.write(output);
-			   </script>
-			   
-		  </div>
-		  <div class=thema>
-			<p><br>Aries×{{ insert_rank }}位
-		  </div>
-			<br><!--span style="background-color: #7fffff;"-->{{ insert_content }}</span><br>
-			<br><!--span style="color:green;font-weight:bold"-->総合運</span><img src="{% static 'images/総合運{{ insert_total }}.png' %}">
-			<br><!--span style="color:yellow;font-weight:bold"3-->金運</span>:{{ insert_money }}
-			<br><!--span style="color:blue;font-weight:bold"-->仕事運</span>:{{ insert_job }}
-			<br><!--span style="color:palevioletred;font-weight:bold"-->恋愛運</span>:{{ insert_love }}
-			<br>ラッキーカラー:{{ insert_color }}
-			<br>ラッキーアイテム:{{ insert_item }}
-			<br>今日のおすすめソング</p>
-	  
-  
-	  </div>
+  <div class="modal-bg js-modal-close">
   </div>
+    <div class="modal-content">
+      <p>おひつじ座のあなた！
+		  <br>今日の運勢は、第{{ insert_rank }}位!<br>
+		  <br><span style="background-color: #7fffff;">{{ insert_content }}</span><br>
+		  <br><span style="color:green;font-weight:bold">総合運</span>:{{ insert_total }}
+		  <br><span style="color:yellow;font-weight:bold">金運</span>:{{ insert_money }}
+		  <br><span style="color:blue;font-weight:bold">仕事運</span>:{{ insert_job }}
+		  <br><span style="color:palevioletred;font-weight:bold">恋愛運</span>:{{ insert_love }}
+		  <br>ラッキーカラー:{{ insert_color }}
+		  <br>ラッキーアイテム:{{ insert_item }}
+		  <br>今日のおすすめソング</p>
+	
+		<a href="#" class="js-modal-close">閉じる</a>
+    </div>
+</div>
 
 <div id="modal02" class="modal js-modal">
   <div class="modal-bg js-modal-close">
@@ -394,13 +387,29 @@ $('.js-modal-close').on('click', function(){
 });
 </script>
 <!-- / ここまで -->
+	 
 
-
-<footer id="footer">
-	powerd by <a href="http://jugemkey.jp/api/">JugemKey</a>
-	【PR】<a href="http://www.tarim.co.jp/">原宿占い館 塔里木</a>
-	Copyright(c) 2016 Sample Inc. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank">http://f-tpl.com</a><!-- ←クレジット表記を外す場合はシリアルキーが必要です http://f-tpl.com/credit/ -->
 </footer>
+	<!-- / フッター -->
+	<address>powerd by <a href="http://jugemkey.jp/api/">JugemKey</a><br>【PR】<a href="http://www.tarim.co.jp/">原宿占い館 塔里木</a><br>Copyright(c) 2013 Sample Inc. All Rights Reserved. Design by <a href="http://f-tpl.com" target="_blank" rel="nofollow">http://f-tpl.com</a></address>
+
+<!-- ↓body閉じタグ直前でjQueryを読み込む -->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-8216c69d01441f36c0ea791ae2d4469f0f8ff5326f00ae2d00e4bb7d20e24edb.js"></script>
+
+  
+      <script id="rendered-js" >
+$(function () {
+  $('#openModal').click(function () {
+    $('#modalArea').fadeIn();
+  });
+  $('#closeModal , #modalBg').click(function () {
+    $('#modalArea').fadeOut();
+  });
+});
+//# sourceURL=pen.js
+    </script>
+
 
 </body>
 </html>
